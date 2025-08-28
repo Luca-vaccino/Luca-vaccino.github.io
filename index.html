@@ -1,11 +1,206 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Luca Vaccino</title>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luca Vaccino – Modeling, Simulation & Scheduling</title>
+  <meta name="description" content="Luca Vaccino – PhD researcher focused on modeling, simulation, and scheduling; NASA L'SPACE, NPWEE, LunaRecycle; open to academic and industry collaborations." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Luca Vaccino – Modeling, Simulation & Scheduling" />
+  <meta property="og:description" content="Research + projects at the intersection of space systems and autonomy. NASA L’SPACE, NPWEE, LunaRecycle." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lucavaccino.com/" />
+  <meta property="og:image" content="https://lucavaccino.com/assets/preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Minimal, fast fonts (system UI) -->
+  <style>
+    :root{
+      --bg:#0f1115;        /* charcoal */
+      --panel:#151924;     /* deep navy */
+      --text:#eef0f3;      /* near-white */
+      --muted:#aab4c0;     /* soft gray */
+      --accent:#5cc8ff;    /* cyan accent */
+      --accent-2:#9ef0a6;  /* mint accent */
+      --maxw:1040px;
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;line-height:1.55;}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;background:rgba(15,17,21,.75);backdrop-filter:blur(8px);z-index:10;border-bottom:1px solid #1f2533}
+    nav{display:flex;align-items:center;gap:18px;height:64px}
+    nav .brand{font-weight:700;letter-spacing:.3px}
+    nav .spacer{flex:1}
+    nav a.btn{padding:8px 14px;border:1px solid #2a3246;border-radius:10px}
+    .hero{padding:72px 0 36px}
+    .hero .grid{display:grid;gap:28px;grid-template-columns:1.1fr .9fr}
+    .card{background:var(--panel);border:1px solid #1f2533;border-radius:var(--radius);padding:24px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .chip{border:1px solid #2a3246;border-radius:999px;padding:6px 10px;color:var(--muted);font-size:.9rem}
+    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .btn-primary{background:var(--accent);color:#001018;border:none;padding:10px 14px;border-radius:12px;font-weight:600}
+    .btn-ghost{border:1px solid #2a3246;padding:10px 14px;border-radius:12px;color:var(--text);background:transparent}
+    section{padding:28px 0}
+    h1,h2,h3{line-height:1.2;margin:0 0 12px}
+    h1{font-size:clamp(28px,4vw,40px)}
+    h2{font-size:clamp(22px,3vw,28px);margin-top:8px}
+    p{margin:0 0 12px;color:#d7dde6}
+    .two{display:grid;gap:18px;grid-template-columns:1fr 1fr}
+    .grid3{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+    .muted{color:var(--muted)}
+    .avatar{width:160px;height:160px;border-radius:20px;object-fit:cover;border:1px solid #2a3246}
+    .pubs li{margin:8px 0}
+    footer{padding:36px 0;color:var(--muted);border-top:1px solid #1f2533;margin-top:36px}
+    .tag{font-size:.85rem;color:#0b1d10;background:var(--accent-2);padding:4px 8px;border-radius:999px}
+    @media (max-width:900px){
+      .hero .grid{grid-template-columns:1fr}
+      .two{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+      nav .hide-sm{display:none}
+    }
+  </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Luca Vaccino",
+    "url": "https://lucavaccino.com/",
+    "affiliation": {"@type":"CollegeOrUniversity","name":"Purdue University"},
+    "jobTitle": "Ph.D. Researcher",
+    "knowsAbout": ["Modeling","Simulation","Scheduling","Space Systems"]
+  }
+  </script>
 </head>
 <body>
-  <h1>Welcome to LucaVaccino.com</h1>
-  <p>This is my personal academic and project portfolio.</p>
+  <a class="visually-hidden" href="#content">Skip to content</a>
+
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand">Luca Vaccino</div>
+        <div class="spacer"></div>
+        <a class="hide-sm" href="#about">About</a>
+        <a class="hide-sm" href="#projects">Projects</a>
+        <a class="hide-sm" href="#publications">Publications</a>
+        <a class="hide-sm" href="#contact">Contact</a>
+        <a class="btn" href="/cv/LucaVaccino_CV.pdf">Download CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="grid card hero grid">
+        <div>
+          <h1>Modeling, Simulation & Scheduling for Space Systems</h1>
+          <p class="muted">Ph.D. researcher focused on resilient habitat operations, autonomy, and decision support. Bridging academic research and industry applications.</p>
+          <div class="chips">
+            <span class="chip">Optimization</span>
+            <span class="chip">System-of-Systems</span>
+            <span class="chip">GitHub Pages</span>
+            <span class="chip">MATLAB / Python</span>
+            <span class="chip">Scheduling Algorithms</span>
+          </div>
+          <div class="cta">
+            <a class="btn-primary" href="#projects">See Projects</a>
+            <a class="btn-ghost" href="#contact">Get in Touch</a>
+          </div>
+        </div>
+        <div style="display:flex;gap:18px;align-items:center;justify-content:flex-end">
+          <img class="avatar" src="/assets/profile.jpg" alt="Headshot of Luca Vaccino" />
+          <div>
+            <div class="tag">Open to collaboration</div>
+            <p class="muted" style="margin-top:8px">Academic & industry partnerships, consulting, and speaking.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="two">
+      <div class="card">
+        <h2>About</h2>
+        <p>I'm Luca Vaccino, a Ph.D. candidate in Mechanical Engineering. My work spans <strong>modeling, simulation, and scheduling</strong> for complex space systems, with a focus on resilient operations and transition planning for habitats.</p>
+        <p>Recent efforts include research on autonomous transition scheduling, experimental validation on a cyber-physical testbed, and contributions to student/NASA programs.</p>
+      </div>
+      <div class="card">
+        <h3>Focus areas</h3>
+        <ul class="muted">
+          <li>Energy-aware transition planning</li>
+          <li>Disruption propagation, detection & repair</li>
+          <li>Optimization heuristics (GA, SA, Tabu, SFLA)</li>
+          <li>System integration & digital testbeds</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <div class="grid3">
+        <article class="card">
+          <h3>HabSim – Habitat Simulation</h3>
+          <p class="muted">Modular simulation of deep-space habitats used to study disruptions and recovery strategies. Work includes contingency scheduling and transition optimization.</p>
+          <p><a href="#contact">Ask me about HabSim →</a></p>
+        </article>
+
+        <article class="card">
+          <h3>NASA L’SPACE / NPWEE</h3>
+          <p class="muted">Proposal writing & evaluation experience aligned with NASA needs. Teamed on concept development, requirements, and review practices.</p>
+          <p><a href="#contact">Discuss outcomes →</a></p>
+        </article>
+
+        <article class="card">
+          <h3>LunaRecycle</h3>
+          <p class="muted">Concepts for lunar waste recycling and material reuse supporting sustainable operations; modeling of process flows and operational integration.</p>
+          <p><a href="#contact">Learn more →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <h2>Publications & Talks</h2>
+      <div class="card">
+        <ul class="pubs">
+          <li><strong>Reactive Transition Scheduling for Deep Space Habitats</strong> — conference/journal, year. <span class="muted">Scheduling under precedence & energy constraints; case studies on habitat transitions.</span></li>
+          <li><strong>Simulation-Based Assessment of Hazardous States in a Deep Space Habitat</strong> — venue, year. <span class="muted">Disruption propagation and recovery strategies.</span></li>
+          <li><em>Add more…</em></li>
+        </ul>
+        <p class="muted">Full list available in my CV.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="two">
+      <div class="card">
+        <h2>Contact</h2>
+        <p>Interested in collaborating or learning more? Reach out.</p>
+        <p>Email: <a href="mailto:REPLACE_WITH_YOUR_EMAIL">REPLACE_WITH_YOUR_EMAIL</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/REPLACE_ME" target="_blank" rel="noopener">linkedin.com/in/REPLACE_ME</a></p>
+      </div>
+      <div class="card">
+        <h3>CV</h3>
+        <p>Download my current CV for details on education, projects, publications, and skills.</p>
+        <p><a class="btn-primary" href="/cv/LucaVaccino_CV.pdf">Download CV</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© <span id="year"></span> Luca Vaccino • <a href="/">lucavaccino.com</a></p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
