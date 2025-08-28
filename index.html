@@ -14,7 +14,7 @@
   <meta property="og:image" content="https://lucavaccino.com/assets/preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Minimal, fast fonts (system UI) -->
+  <!-- Responsive, accessible, fast -->
   <style>
     :root{
       --bg:#0f1115;        /* charcoal */
@@ -25,43 +25,80 @@
       --accent-2:#9ef0a6;  /* mint accent */
       --maxw:1040px;
       --radius:18px;
+
+      /* fluid type scale */
+      --step--1: clamp(0.9rem, 0.8rem + 0.2vw, 1rem);
+      --step-0:  clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+      --step-1:  clamp(1.25rem, 1.1rem + 0.8vw, 1.6rem);
+      --step-2:  clamp(1.6rem,  1.3rem + 1.6vw, 2rem);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;line-height:1.55;}
+    body{
+      margin:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;
+      line-height:1.6;font-size:var(--step-0);
+    }
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
     .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
     header{position:sticky;top:0;background:rgba(15,17,21,.75);backdrop-filter:blur(8px);z-index:10;border-bottom:1px solid #1f2533}
-    nav{display:flex;align-items:center;gap:18px;height:64px}
-    nav .brand{font-weight:700;letter-spacing:.3px}
+    nav{display:flex;align-items:center;gap:18px;height:64px;position:relative}
+    nav .brand{font-weight:700;letter-spacing:.3px;font-size:var(--step-1)}
     nav .spacer{flex:1}
-    nav a.btn{padding:8px 14px;border:1px solid #2a3246;border-radius:10px}
+    .navlinks{display:flex;align-items:center;gap:18px}
+    .navlinks a.btn{padding:8px 14px;border:1px solid #2a3246;border-radius:10px}
+    #menuBtn{
+      display:none;border:1px solid #2a3246;border-radius:10px;background:transparent;color:var(--text);
+      padding:8px 12px;line-height:1
+    }
+
     .hero{padding:72px 0 36px}
-    .hero .grid{display:grid;gap:28px;grid-template-columns:1.1fr .9fr}
+    .grid{display:grid;gap:28px}
+    .hero .grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
     .card{background:var(--panel);border:1px solid #1f2533;border-radius:var(--radius);padding:24px}
+
     .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-    .chip{border:1px solid #2a3246;border-radius:999px;padding:6px 10px;color:var(--muted);font-size:.9rem}
+    .chip{border:1px solid #2a3246;border-radius:999px;padding:6px 10px;color:var(--muted);font-size:var(--step--1)}
     .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
     .btn-primary{background:var(--accent);color:#001018;border:none;padding:10px 14px;border-radius:12px;font-weight:600}
     .btn-ghost{border:1px solid #2a3246;padding:10px 14px;border-radius:12px;color:var(--text);background:transparent}
+
     section{padding:28px 0}
-    h1,h2,h3{line-height:1.2;margin:0 0 12px}
-    h1{font-size:clamp(28px,4vw,40px)}
-    h2{font-size:clamp(22px,3vw,28px);margin-top:8px}
+    h1{font-size:var(--step-2);line-height:1.2;margin:0 0 12px}
+    h2{font-size:var(--step-1);margin:0 0 12px}
+    h3{margin:0 0 8px}
     p{margin:0 0 12px;color:#d7dde6}
+
     .two{display:grid;gap:18px;grid-template-columns:1fr 1fr}
     .grid3{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
     .muted{color:var(--muted)}
     .avatar{width:160px;height:160px;border-radius:20px;object-fit:cover;border:1px solid #2a3246}
     .pubs li{margin:8px 0}
+
     footer{padding:36px 0;color:var(--muted);border-top:1px solid #1f2533;margin-top:36px}
     .tag{font-size:.85rem;color:#0b1d10;background:var(--accent-2);padding:4px 8px;border-radius:999px}
+
+    /* --- breakpoints --- */
+    @media (max-width:1200px){
+      .wrap{padding:0 16px}
+    }
     @media (max-width:900px){
+      .hero{padding:56px 0 28px}
       .hero .grid{grid-template-columns:1fr}
       .two{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr 1fr}
+      #menuBtn{display:inline-block}
+      .navlinks{
+        display:none;position:absolute;right:0;top:64px;background:var(--panel);
+        border:1px solid #1f2533;border-radius:12px;padding:8px;flex-direction:column;gap:8px;min-width:220px
+      }
+      body.nav-open .navlinks{display:flex}
+    }
+    @media (max-width:600px){
       .grid3{grid-template-columns:1fr}
-      nav .hide-sm{display:none}
+      .avatar{width:128px;height:128px}
     }
   </style>
 
@@ -83,14 +120,19 @@
 
   <header>
     <div class="wrap">
-      <nav>
+      <nav aria-label="Main">
         <div class="brand">Luca Vaccino</div>
         <div class="spacer"></div>
-        <a class="hide-sm" href="#about">About</a>
-        <a class="hide-sm" href="#projects">Projects</a>
-        <a class="hide-sm" href="#publications">Publications</a>
-        <a class="hide-sm" href="#contact">Contact</a>
-        <a class="btn" href="/cv/LucaVaccino_CV.pdf">Download CV</a>
+
+        <div class="navlinks" id="nav">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#publications">Publications</a>
+          <a href="#contact">Contact</a>
+          <a class="btn" href="/cv/LucaVaccino_CV.pdf">Download CV</a>
+        </div>
+
+        <button id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Menu">☰</button>
       </nav>
     </div>
   </header>
@@ -98,7 +140,7 @@
   <main id="content" class="wrap">
     <!-- HERO -->
     <section class="hero">
-      <div class="grid card hero grid">
+      <div class="card grid">
         <div>
           <h1>Modeling, Simulation & Scheduling for Space Systems</h1>
           <p class="muted">Ph.D. researcher focused on resilient habitat operations, autonomy, and decision support. Bridging academic research and industry applications.</p>
@@ -115,7 +157,11 @@
           </div>
         </div>
         <div style="display:flex;gap:18px;align-items:center;justify-content:flex-end">
-          <img class="avatar" src="/assets/profile.jpg" alt="Headshot of Luca Vaccino" />
+          <img class="avatar"
+               src="/assets/profile.jpg"
+               alt="Headshot of Luca Vaccino"
+               width="160" height="160"
+               loading="lazy" />
           <div>
             <div class="tag">Open to collaboration</div>
             <p class="muted" style="margin-top:8px">Academic & industry partnerships, consulting, and speaking.</p>
@@ -184,7 +230,7 @@
       <div class="card">
         <h2>Contact</h2>
         <p>Interested in collaborating or learning more? Reach out.</p>
-        <p>Email: <a href="mailto:luca.vaccino@gmail.com">lucavaccino2025@gmail.com</a></p>
+        <p>Email: <a href="mailto:lucavaccino2025@gmail.com">lucavaccino2025@gmail.com</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/luca-vaccino/" target="_blank" rel="noopener">linkedin.com/in/luca-vaccino/</a></p>
       </div>
       <div class="card">
@@ -201,6 +247,15 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <script>
+    // year footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    btn?.addEventListener('click', () => {
+      const open = document.body.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  </script>
 </body>
 </html>
