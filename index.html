@@ -4,100 +4,130 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luca Vaccino – Modeling, Simulation & Scheduling</title>
-  <meta name="description" content="Luca Vaccino – PhD researcher focused on modeling, simulation, and scheduling; NASA L'SPACE, NPWEE, LunaRecycle; open to academic and industry collaborations." />
+  <meta name="description" content="Luca Vaccino – PhD researcher focused on modeling, simulation, and scheduling; NASA L'SPACE, NPWEE, LunaRecycle; open to academic and industry collaborations.">
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Luca Vaccino – Modeling, Simulation & Scheduling" />
-  <meta property="og:description" content="Research + projects at the intersection of space systems and autonomy. NASA L’SPACE, NPWEE, LunaRecycle." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://lucavaccino.com/" />
-  <meta property="og:image" content="https://lucavaccino.com/assets/preview.png" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:title" content="Luca Vaccino – Modeling, Simulation & Scheduling">
+  <meta property="og:description" content="Research + projects at the intersection of space systems and autonomy. NASA L’SPACE, NPWEE, LunaRecycle.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lucavaccino.com/">
+  <meta property="og:image" content="https://lucavaccino.com/assets/preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Small polish -->
+  <link rel="icon" href="/assets/favicon.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="canonical" href="https://lucavaccino.com/">
+  <meta name="theme-color" content="#0f1115">
 
-  <!-- Responsive, accessible, fast -->
   <style>
     :root{
       --bg:#0f1115;        /* charcoal */
-      --panel:#151924;     /* deep navy */
+      --panel:#131724;     /* deep navy */
+      --panel-2:#0b0e16;   /* darker for depth */
       --text:#eef0f3;      /* near-white */
       --muted:#aab4c0;     /* soft gray */
-      --accent:#5cc8ff;    /* cyan accent */
-      --accent-2:#9ef0a6;  /* mint accent */
-      --maxw:1040px;
+      --accent:#5cc8ff;    /* cyan */
+      --accent-2:#9ef0a6;  /* mint */
+      --line:#1f2533;      /* hairline */
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+      --maxw:1080px;
       --radius:18px;
 
       /* fluid type scale */
-      --step--1: clamp(0.9rem, 0.8rem + 0.2vw, 1rem);
-      --step-0:  clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
-      --step-1:  clamp(1.25rem, 1.1rem + 0.8vw, 1.6rem);
-      --step-2:  clamp(1.6rem,  1.3rem + 1.6vw, 2rem);
+      --step--1: clamp(.9rem,.8rem + .2vw,1rem);
+      --step-0:  clamp(1rem,.9rem + .4vw,1.1rem);
+      --step-1:  clamp(1.25rem,1.05rem + .9vw,1.6rem);
+      --step-2:  clamp(1.6rem,1.2rem + 1.6vw,2rem);
+      --step-3:  clamp(2rem,1.4rem + 2.2vw,2.6rem);
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0;background:var(--bg);color:var(--text);
+      margin:0;background:linear-gradient(180deg,var(--panel-2),var(--bg));
+      color:var(--text);
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;
-      line-height:1.6;font-size:var(--step-0);
+      line-height:1.65;font-size:var(--step-0);
     }
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
 
-    header{position:sticky;top:0;background:rgba(15,17,21,.75);backdrop-filter:blur(8px);z-index:10;border-bottom:1px solid #1f2533}
+    /* Header */
+    header{position:sticky;top:0;background:rgba(11,14,22,.7);backdrop-filter:blur(8px);z-index:10;border-bottom:1px solid var(--line)}
     nav{display:flex;align-items:center;gap:18px;height:64px;position:relative}
-    nav .brand{font-weight:700;letter-spacing:.3px;font-size:var(--step-1)}
-    nav .spacer{flex:1}
+    .brand{font-weight:700;letter-spacing:.2px;font-size:var(--step-1)}
+    .spacer{flex:1}
     .navlinks{display:flex;align-items:center;gap:18px}
-    .navlinks a.btn{padding:8px 14px;border:1px solid #2a3246;border-radius:10px}
+    .btn{padding:8px 14px;border:1px solid var(--line);border-radius:12px}
     #menuBtn{
-      display:none;border:1px solid #2a3246;border-radius:10px;background:transparent;color:var(--text);
+      display:none;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--text);
       padding:8px 12px;line-height:1
     }
 
-    .hero{padding:72px 0 36px}
+    /* Cards & layout */
     .grid{display:grid;gap:28px}
-    .hero .grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
-    .card{background:var(--panel);border:1px solid #1f2533;border-radius:var(--radius);padding:24px}
-
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-    .chip{border:1px solid #2a3246;border-radius:999px;padding:6px 10px;color:var(--muted);font-size:var(--step--1)}
-    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-    .btn-primary{background:var(--accent);color:#001018;border:none;padding:10px 14px;border-radius:12px;font-weight:600}
-    .btn-ghost{border:1px solid #2a3246;padding:10px 14px;border-radius:12px;color:var(--text);background:transparent}
-
-    section{padding:28px 0}
-    h1{font-size:var(--step-2);line-height:1.2;margin:0 0 12px}
-    h2{font-size:var(--step-1);margin:0 0 12px}
-    h3{margin:0 0 8px}
-    p{margin:0 0 12px;color:#d7dde6}
-
-    .two{display:grid;gap:18px;grid-template-columns:1fr 1fr}
-    .grid3{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
-    .muted{color:var(--muted)}
-    .avatar{width:160px;height:160px;border-radius:20px;object-fit:cover;border:1px solid #2a3246}
-    .pubs li{margin:8px 0}
-
-    footer{padding:36px 0;color:var(--muted);border-top:1px solid #1f2533;margin-top:36px}
-    .tag{font-size:.85rem;color:#0b1d10;background:var(--accent-2);padding:4px 8px;border-radius:999px}
-
-    /* --- breakpoints --- */
-    @media (max-width:1200px){
-      .wrap{padding:0 16px}
+    .card{
+      background: var(--panel);
+      border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+      box-shadow: var(--shadow);
     }
+    /* Fancy border for hero */
+    .card--glow{
+      background:
+        linear-gradient(var(--panel),var(--panel)) padding-box,
+        linear-gradient(135deg,var(--accent),var(--accent-2)) border-box;
+      border:1px solid transparent;
+    }
+
+    /* Typography */
+    section{padding:34px 0}
+    h1{font-size:var(--step-3);line-height:1.15;margin:0 0 10px}
+    h2{font-size:var(--step-2);margin:0 0 12px}
+    h3{margin:0 0 8px;font-size:var(--step-1)}
+    p{margin:0 0 12px;color:#d7dde6}
+    .muted{color:var(--muted)}
+    .kicker{display:inline-block;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:var(--muted);margin-bottom:6px}
+
+    /* Chips & buttons */
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .chip{border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:var(--step--1);background:#0e1320}
+    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),#8ae2ff);color:#001018;border:none;padding:10px 16px;border-radius:12px;font-weight:700}
+    .btn-ghost{border:1px solid var(--line);padding:10px 16px;border-radius:12px;color:var(--text);background:transparent}
+
+    /* Grids */
+    .two{display:grid;gap:18px;grid-template-columns:1fr 1fr}
+    .grid3{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .project.card{transition:transform .2s ease, box-shadow .2s ease}
+    .project.card:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(0,0,0,.45)}
+
+    /* Media */
+    .avatar{width:160px;height:160px;border-radius:20px;object-fit:cover;border:1px solid var(--line)}
+    .pubs li{margin:8px 0}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:10px 0 2px}
+
+    /* Footer */
+    footer{padding:36px 0;color:var(--muted);border-top:1px solid var(--line);margin-top:36px}
+
+    /* Accessibility */
+    :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    .sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+    /* Breakpoints */
+    @media (max-width:1200px){ .wrap{padding:0 16px} }
     @media (max-width:900px){
       .hero{padding:56px 0 28px}
-      .hero .grid{grid-template-columns:1fr}
       .two{grid-template-columns:1fr}
-      .grid3{grid-template-columns:1fr 1fr}
       #menuBtn{display:inline-block}
       .navlinks{
         display:none;position:absolute;right:0;top:64px;background:var(--panel);
-        border:1px solid #1f2533;border-radius:12px;padding:8px;flex-direction:column;gap:8px;min-width:220px
+        border:1px solid var(--line);border-radius:12px;padding:10px;flex-direction:column;gap:10px;min-width:220px;
+        box-shadow: var(--shadow);
       }
       body.nav-open .navlinks{display:flex}
     }
     @media (max-width:600px){
-      .grid3{grid-template-columns:1fr}
       .avatar{width:128px;height:128px}
     }
   </style>
@@ -116,7 +146,7 @@
   </script>
 </head>
 <body>
-  <a class="visually-hidden" href="#content">Skip to content</a>
+  <a class="sr-only" href="#content">Skip to content</a>
 
   <header>
     <div class="wrap">
@@ -140,14 +170,15 @@
   <main id="content" class="wrap">
     <!-- HERO -->
     <section class="hero">
-      <div class="card grid">
+      <div class="card card--glow grid" style="grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)">
         <div>
+          <span class="kicker">Space systems • autonomy • operations</span>
           <h1>Modeling, Simulation & Scheduling for Space Systems</h1>
+          <div class="divider"></div>
           <p class="muted">Ph.D. researcher focused on resilient habitat operations, autonomy, and decision support. Bridging academic research and industry applications.</p>
           <div class="chips">
             <span class="chip">Optimization</span>
             <span class="chip">System-of-Systems</span>
-            <span class="chip">GitHub Pages</span>
             <span class="chip">MATLAB / Python</span>
             <span class="chip">Scheduling Algorithms</span>
           </div>
@@ -163,7 +194,7 @@
                width="160" height="160"
                loading="lazy" />
           <div>
-            <div class="tag">Open to collaboration</div>
+            <div class="chip" style="background:linear-gradient(135deg,var(--accent-2),#c6f6cc);color:#0b1d10;border-color:transparent">Open to collaboration</div>
             <p class="muted" style="margin-top:8px">Academic & industry partnerships, consulting, and speaking.</p>
           </div>
         </div>
@@ -173,13 +204,15 @@
     <!-- ABOUT -->
     <section id="about" class="two">
       <div class="card">
-        <h2>About</h2>
+        <span class="kicker">About</span>
+        <h2>Researcher focused on resilient habitat operations</h2>
         <p>I'm Luca Vaccino, a Ph.D. candidate in Mechanical Engineering. My work spans <strong>modeling, simulation, and scheduling</strong> for complex space systems, with a focus on resilient operations and transition planning for habitats.</p>
         <p>Recent efforts include research on autonomous transition scheduling, experimental validation on a cyber-physical testbed, and contributions to student/NASA programs.</p>
       </div>
       <div class="card">
-        <h3>Focus areas</h3>
-        <ul class="muted">
+        <span class="kicker">Focus areas</span>
+        <h2 style="margin-bottom:6px">What I work on</h2>
+        <ul class="muted" style="margin:0;padding-left:18px">
           <li>Energy-aware transition planning</li>
           <li>Disruption propagation, detection & repair</li>
           <li>Optimization heuristics (GA, SA, Tabu, SFLA)</li>
@@ -190,42 +223,43 @@
 
     <!-- PROJECTS -->
     <section id="projects">
-      <h2>Selected Projects</h2>
+      <span class="kicker">Projects</span>
+      <h2>Selected Work</h2>
       <div class="grid3">
-        <article class="card">
+        <article class="card project">
           <h3>HabSim – Habitat Simulation</h3>
           <p class="muted">Modular simulation of deep-space habitats used to study disruptions and recovery strategies. Work includes contingency scheduling and transition optimization.</p>
           <p><a href="#contact">Ask me about HabSim →</a></p>
         </article>
 
-        <article class="card">
+        <article class="card project">
           <h3>NASA L’SPACE / NPWEE</h3>
           <p class="muted">Proposal writing & evaluation experience aligned with NASA needs. Teamed on concept development, requirements, and review practices.</p>
           <p><a href="#contact">Discuss outcomes →</a></p>
         </article>
 
-        <article class="card">
+        <article class="card project">
           <h3>LunaRecycle</h3>
           <p class="muted">Concepts for lunar waste recycling and material reuse supporting sustainable operations; modeling of process flows and operational integration.</p>
           <p><a href="#contact">Learn more →</a></p>
         </article>
 
-        <article class="card">
-  <h3>Master’s Thesis — Condition Monitoring of Hydraulic Pumps</h3>
-  <p class="muted">Politecnico di Torino (2021). Digital twin + machine learning to detect faults in axial piston pumps.</p>
-  <ul class="muted" style="margin:0 0 10px 18px">
-    <li>0-D lumped pump model with fault injection (cylinder, slipper, valve-plate scratch).</li>
-    <li>Validated vs. healthy & “extremely damaged” valve-plate tests; drain-flow model &lt;5% error @ 1500–2000 rpm.</li>
-    <li>Classifiers: SVM, k-NN, Decision Tree; feature selection to minimize sensor count.</li>
-  </ul>
-  <p><a href="/projects/Vaccino_MasterThesis_2021.pdf" target="_blank" rel="noopener">Read the thesis (PDF)</a></p>
-</article>
-
+        <article class="card project">
+          <h3>Master’s Thesis — Condition Monitoring of Hydraulic Pumps</h3>
+          <p class="muted">Politecnico di Torino (2021). Digital twin + machine learning to detect faults in axial piston pumps.</p>
+          <ul class="muted" style="margin:0 0 10px 18px">
+            <li>0-D lumped pump model with fault injection (cylinder, slipper, valve-plate scratch).</li>
+            <li>Validated vs. healthy & “extremely damaged” valve-plate tests; drain-flow model &lt;5% error @ 1500–2000 rpm.</li>
+            <li>Classifiers: SVM, k-NN, Decision Tree; feature selection to minimize sensor count.</li>
+          </ul>
+          <p><a href="/projects/Vaccino_MasterThesis_2021.pdf" target="_blank" rel="noopener">Read the thesis (PDF)</a></p>
+        </article>
       </div>
     </section>
 
     <!-- PUBLICATIONS -->
     <section id="publications">
+      <span class="kicker">Publications</span>
       <h2>Publications & Talks</h2>
       <div class="card">
         <ul class="pubs">
@@ -240,13 +274,15 @@
     <!-- CONTACT -->
     <section id="contact" class="two">
       <div class="card">
-        <h2>Contact</h2>
+        <span class="kicker">Contact</span>
+        <h2>Let’s connect</h2>
         <p>Interested in collaborating or learning more? Reach out.</p>
         <p>Email: <a href="mailto:lucavaccino2025@gmail.com">lucavaccino2025@gmail.com</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/luca-vaccino/" target="_blank" rel="noopener">linkedin.com/in/luca-vaccino/</a></p>
       </div>
       <div class="card">
-        <h3>CV</h3>
+        <span class="kicker">CV</span>
+        <h2>Curriculum Vitae</h2>
         <p>Download my current CV for details on education, projects, publications, and skills.</p>
         <p><a class="btn-primary" href="/cv/LucaVaccino_CV.pdf">Download CV</a></p>
       </div>
@@ -271,3 +307,4 @@
   </script>
 </body>
 </html>
+
